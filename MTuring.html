@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+	Máquina de Turing
+	Sergio Guerra Vega  2010
+	
+	S(q,X)=S(q,X,D)
+S(q,1)=S(q,1,D)
+S(q,0)=S(q,0,D)
+S(q,B)=S(q1,B,I)
+S(q1,1)=S(q1,1,I)
+S(q1,0)=S(q2,1,I)
+S(q1,X)=S(q2,1,I)
+S(q2,1)=S(q2,1,I)
+S(q2,0)=S(q2,0,I)
+S(q2,X)=S(q2,X,I)
+S(q2,B)=S(q3,B,D)
+S(q3,B)=S(q3,B,D)
+
+
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="cache-control" http-equiv="no-cahe"/>
+<link rel="stylesheet" href="MTuring.css"/>
+<title>Máquina de Turing</title>
+</head>
+
+<body>	
+
+	<div class="autor">Sergio Guerra Vega 2010</div>
+	
+	<table align="center" height="70%" width="70%">
+		<tr>
+			<td height="10%" colspan="4">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="titulo">Máquina de Turing</td>
+		</tr>
+		<tr>
+			<td height="10%" colspan="4">&nbsp;</td>
+		</tr>
+		<tr class="definicion">
+			<td colspan="2">M=(Q,Z,T,S,q,B,F)</td>			
+			<td colspan="2">
+				<div id="maquina">
+				</div>
+			</td>
+		</tr>		
+		<tr>
+			<td height="10%" colspan="4">&nbsp;</td>
+		</tr>
+		<tr class="propiedades">
+			<td>Q={<input id="Q" type="text" value="">}</td>
+			<td>Z={<input id="Z" type="text" value="">}</td>
+			<td>T={<input id="T" type="text" value="">}</td>
+			<td>F={<input id="F" type="text" value="" onblur="fillF(this.value);">}</td>
+		</tr>
+		<tr>
+			<td height="10%" colspan="4">&nbsp;</td>
+		</tr>
+		<tr class="propiedades">
+			<td colspan="2" valign="top">
+				<table>
+					<tr>
+						<td valign="top">S:</td>						
+						<td valign="top">&nbsp;</td>
+						<td valign="top">
+							<textarea id="S" name="S" onblur="fillFunctions();"></textarea>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td colspan="2" rowspan="2" width="60%" valign="top">
+				
+				<table width="100%">
+					<tr>
+						<td>
+							<table align="left">
+								<tr class="propiedades">
+									<td>Cadena = <input id="String" type="text" style="text-align:left; width:150px;" value="" onkeyup="iniciaCinta(this.value);"></td>	
+									<td><button onclick="M();">Leer Cadena</button></td>						
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="cinta" align="center">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table align="center" width="100%">
+								<tr class="propiedades">
+									<td>Comprobar Cinta</td>	
+									<td><button id="ccinta" style="font-size:20px;width:40px;" onclick="checkTipe(this);">Sí</button></td>	
+									<td width="10%">&nbsp;</td>
+									
+									<td>Velocidad</td>	
+									<td><button onclick="velocity(2);">-</button></td>	
+									<td><button onclick="velocity(0.5);">+</button></td>						
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="resultado" style="height:30px;" align="center" width="100%">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table align="center" cellpadding="2" cellspacing="2">
+								<tr>
+									<td class="propiedades" valign="top">Proceso:</td>
+									<td valign="top">
+										<div id="proceso" class="proceso">
+			
+										</div>
+									</td>					
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>	
+	</table>
+	
+</body>
+</html>
+<script src="MTuring.js"></script>
